@@ -13,7 +13,11 @@ def search_youtube(query, max_results=25):
     results = response.json()["items"]
     return results
 
-results = search_youtube(search_term)
+
+
+results = search_youtube("sveltekit")
 for result in results:
-    print(result["snippet"]["publishedAt"], result["snippet"]["title"])
+    video_id = result["id"]["videoId"]
+    video_url = f"https://www.youtube.com/watch?v={video_id}"
+    print(result["snippet"]["publishedAt"], result["snippet"]["title"], video_url)
 
